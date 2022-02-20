@@ -1,41 +1,50 @@
 <div class="container mt-4">
-<h2>My pokemons</h2>
-<h4>Please select a pokemon</h4>
-<p></p>
-<select name="pokemons" class="form-select selection dropdown" >
-  <option value="" >--Please choose a pokemon--</option>
-  <option value="dog"  *ngFor="let pokemon of pokemons, index as i" (click) = "showDetails(i+1)"  >{{pokemon.name}} </option>
-</select>
+  <h2>My pokemons</h2>
+  <h4>Please select a pokemon</h4>
+  <p></p>
+  <select name="pokemons" class="form-select selection dropdown">
+    <option value="">--Please choose a pokemon--</option>
+    <option
+      value="dog"
+      *ngFor="let pokemon of pokemons; index as i"
+      (click)="showDetails(i + 1)"
+    >
+      {{ pokemon.name }}
+    </option>
+  </select>
 
-<!-- <h5 *ngIf= 'show'>{{name}} </h5>
+  <!-- <h5 *ngIf= 'show'>{{name}} </h5>
 <p *ngIf= 'show'>{{baseExperience}} </p>
 <p *ngIf= 'show'>{{height}} </p>
 <img src={{pic}} alt=""> -->
 
-<table class="table" *ngIf="show">
-  <thead>
-    <tr>
-      <th scope="col">Number</th>
-      <th scope="col">name</th>
-      <th scope="col">base exeperience</th>
-      <th scope="col">moves</th>
-      <th scope="col">type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">{{number}} </th>
-      <td>{{name}} </td>
-      <td>{{baseExperience}} </td>
-      <td> <ul>
-        <li *ngFor="let move of moves">{{move}} </li>
-      </ul> </td>
-      <td><ul>
-        <li *ngFor="let type of types">{{type}} </li>
-      </ul></td>
-    </tr>
-    <img src="{{pic}}"  alt="image pokemon" >
-    
+  <table class="table" *ngIf="show">
+    <thead>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">name</th>
+        <th scope="col">base exeperience</th>
+        <th scope="col">moves</th>
+        <th scope="col">type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ number }}</th>
+        <td>{{ name }}</td>
+        <td>{{ baseExperience }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let move of moves">{{ move }}</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let type of types">{{ type }}</li>
+          </ul>
+        </td>
+      </tr>
+      <img src="{{ pic }}" alt="image pokemon" />
+    </tbody>
   </table>
-
 </div>
