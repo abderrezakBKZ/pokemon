@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
-## Contibutors 
+## Contributors 
 1. Boukazouha Abderrezak
 2. Bouzourine Youcef
 
