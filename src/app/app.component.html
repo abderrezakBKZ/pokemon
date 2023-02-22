@@ -1,38 +1,29 @@
-<div class="container mt-4">
-  <h2>My pokemons</h2>
-  <h4>Please select a pokemon</h4>
-  <p></p>
-  <select name="pokemons" class="form-select selection dropdown">
-    <option value="">--Please choose a pokemon--</option>
+<div class="container mx-2">
+  <h2 class="text-center">List of Pokemons first generation</h2>
+
+    <h4 class="mt-4">Please select a pokemon</h4>
+  <select name="pokemons" class="form-select selection dropdown" (change)="showDetails($any($event.target).value);">
+    <option [value]="0">--Please choose a pokemon--</option>
     <option
-      value="dog"
       *ngFor="let pokemon of pokemons; index as i"
-      (click)="showDetails(i + 1)"
+      [value]="i+1"
     >
       {{ pokemon.name }}
     </option>
   </select>
-
-  <!-- <h5 *ngIf= 'show'>{{name}} </h5>
-<p *ngIf= 'show'>{{baseExperience}} </p>
-<p *ngIf= 'show'>{{height}} </p>
-<img src={{pic}} alt=""> -->
-
+</div>
+  <div class="tab-content table-responsive-md">
   <table class="table" *ngIf="show">
     <thead>
-      <tr>
-        <th scope="col">Number</th>
+      <tr><th scope="col">moves</th>
+        <th scope="col">type</th>
         <th scope="col">name</th>
         <th scope="col">base exeperience</th>
-        <th scope="col">moves</th>
-        <th scope="col">type</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{ number }}</th>
-        <td>{{ name }}</td>
-        <td>{{ baseExperience }}</td>
         <td>
           <ul>
             <li *ngFor="let move of moves">{{ move }}</li>
@@ -43,6 +34,8 @@
             <li *ngFor="let type of types">{{ type }}</li>
           </ul>
         </td>
+        <td>{{ name }}</td>
+        <td>{{ baseExperience }}</td>
       </tr>
       <img src="{{ pic }}" alt="image pokemon" />
     </tbody>

@@ -66,9 +66,12 @@ export class AppComponent {
   }
 
   async showDetails(num: number) {
+    if (num == 0) {
+      this.show = false;
+      return;
+    }
     const details = await axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`);
     this.moves = [];
-    console.log(this.pokemondata);
     this.show = true;
     this.name = details.data.name;
     this.baseExperience = details.data.base_experience;
